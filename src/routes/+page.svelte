@@ -1,4 +1,5 @@
 <script>
+  import { PUBLIC_GA_TRACKING_ID } from "$env/static/public";
   import { onMount } from "svelte";
   import { UAParser } from "ua-parser-js";
 
@@ -21,6 +22,13 @@
 
   $: console.log({ dark });
 
+  function handleClick() {
+    if (type === "iOS") gtag("event", "click_ChitChat", { event_category: "promotion", event_label: "button_iOS" });
+    else if (type === "Chrome") gtag("event", "click_Sidebar", { event_category: "promotion", event_label: "button_Chrome" });
+    else if (type === "Edge") gtag("event", "click_Sider", { event_category: "promotion", event_label: "button_Edge" });
+    else gtag("event", "click_ChitChatSite", { event_category: "promotion", event_label: "button_other" });
+  }
+
   onMount(() => {
     window.addEventListener("message", (event) => {
       dark = event.data.darkMode;
@@ -41,12 +49,15 @@
     } else {
       href = "https://gochitchat.ai/";
     }
+
+    gtag("js", new Date());
+    gtag("config", "G-F8K8V9N5K4");
   });
 </script>
 
 {#if mounted}
   <div class="font-sans text-xs whitespace-nowrap" class:dark>
-    <a {href} target="_blank" class="fixed left-0 top-0 w-screen h-screen text-[#444444] dark:text-[#ddddf0]">
+    <a on:click={handleClick} {href} target="_blank" class="fixed left-0 top-0 w-screen h-screen text-[#444444] dark:text-[#ddddf0]">
       <Background />
 
       <div class="contents sm:hidden">
@@ -107,10 +118,19 @@
 {/if}
 
 <svelte:head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id={PUBLIC_GA_TRACKING_ID}"></script>
   {#if href}
     <link rel="dns-prefetch" {href} />
     <!-- <link rel="preconnect" {href} /> -->
   {/if}
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-F8K8V9N5K4"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+  </script>
 </svelte:head>
 
 <style>

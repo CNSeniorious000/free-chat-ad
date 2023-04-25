@@ -14,7 +14,7 @@
 		"@iconify-json/mingcute": "^1.1.5",
 		"@iconify-json/solar": "^1.1.1",
 		"@iconify-json/svg-spinners": "^1.1.1",
-		"@sveltejs/adapter-static": "^2.0.2",
+		"@sveltejs/adapter-auto": "^2.0.1",
 		"@sveltejs/kit": "^1.15.8",
 		"@types/ua-parser-js": "^0.7.36",
 		"@unocss/extractor-svelte": "^0.51.8",
