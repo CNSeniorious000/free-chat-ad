@@ -1,0 +1,31 @@
+{
+	"name": "chitchat-ad",
+	"version": "0.0.1",
+	"private": true,
+	"scripts": {
+		"dev": "vite dev",
+		"build": "vite build",
+		"preview": "vite preview",
+		"check": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json",
+		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json --watch"
+	},
+	"devDependencies": {
+		"@iconify-json/logos": "^1.1.25",
+		"@iconify-json/mingcute": "^1.1.5",
+		"@iconify-json/solar": "^1.1.1",
+		"@iconify-json/svg-spinners": "^1.1.1",
+		"@sveltejs/adapter-static": "^2.0.2",
+		"@sveltejs/kit": "^1.15.8",
+		"@types/ua-parser-js": "^0.7.36",
+		"@unocss/extractor-svelte": "^0.51.8",
+		"svelte": "^3.58.0",
+		"svelte-check": "^3.2.0",
+		"typescript": "^5.0.4",
+		"unocss": "^0.51.8",
+		"vite": "^4.3.2"
+	},
+	"type": "module",
+	"dependencies": {
+		"ua-parser-js": "^1.0.35"
+	}
+}
