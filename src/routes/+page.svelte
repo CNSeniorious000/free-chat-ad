@@ -58,10 +58,10 @@
       <Background />
 
       <div class="contents sm:hidden">
-        <div class="absolute left-6 flex flex-row h-full items-center justify-between">
+        <div class="absolute left-6 flex flex-row h-full items-center">
           <div class="flex flex-col">
             <div class="flex flex-row items-center">
-              <div in:fly={{ y: 3, duration: 500, easing: cubicOut }} class="w-7">
+              <div in:fly={{ y: 3, duration: 500, easing: cubicOut }} class="w-7 flex">
                 <Logo />
               </div>
               <div in:fly={{ y: 3, duration: 500, easing: cubicOut, delay: 50 }} class="ml-1">
