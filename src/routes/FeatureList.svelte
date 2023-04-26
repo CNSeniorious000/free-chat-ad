@@ -15,13 +15,8 @@
         features = ["100+AI专家", "PDF智能问答", "支持GPT, Bard, Bing", "自定义AI角色"];
         break;
       case "Chrome":
-        features = ["AI聊天", "智能读写助理", "快速查询", "主流搜索引擎支持"];
-        break;
-      case "Edge":
-        features = ["AI聊天", "智能读写助理", "快速响应", "GPT科技"];
-        break;
       default:
-        features = ["100+ AI专家", "ChatPDF", "GPT, Bard, Bing", "自定义AI角色"];
+        features = ["无需梯子", "AI 聊天", "智能读写", "即将支持 GPT-4"];
     }
   }
 </script>

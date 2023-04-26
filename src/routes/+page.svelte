@@ -25,8 +25,7 @@
   function handleClick() {
     if (type === "iOS") gtag("event", "click_ChitChat", { event_category: "promotion", event_label: "button_iOS" });
     else if (type === "Chrome") gtag("event", "click_Sidebar", { event_category: "promotion", event_label: "button_Chrome" });
-    else if (type === "Edge") gtag("event", "click_Sider", { event_category: "promotion", event_label: "button_Edge" });
-    else gtag("event", "click_ChitChatSite", { event_category: "promotion", event_label: "button_other" });
+    else gtag("event", "click_Sider", { event_category: "promotion", event_label: "button_Edge" });
   }
 
   onMount(() => {
@@ -43,11 +42,9 @@
     } else if (browser.name === "Chrome") {
       type = "Chrome";
       href = "https://chrome.google.com/webstore/detail/chatgpt-sidebar-support-g/difoiogjjojoaoomphldepapgpbgkhkb";
-    } else if (browser.name === "Edge") {
+    } else {
       type = "Edge";
       href = "https://microsoftedge.microsoft.com/addons/detail/sider-ai-sidebar/dhoenijjpgpeimemopealfcbiecgceod";
-    } else {
-      href = "https://gochitchat.ai/";
     }
 
     gtag("js", new Date());

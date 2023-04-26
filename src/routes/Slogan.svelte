@@ -6,11 +6,8 @@
   {#if type === "iOS"}
     AI聊天新境界。懂你不懂，聊你想聊!
   {:else if type === "Chrome"}
-    <span class="hidden md:display-[unset]">一款值得拥有的GPT插件!</span>
-    效率翻倍，读写不累!
-  {:else if type === "Edge"}
-    您值得信赖的网页AI助理
+    一款值得拥有的GPT插件! 效率翻倍，读写不累!
   {:else}
-    ChitChat - AI 聊天新玩法!
+    <span class="sm:hidden"> - </span> Edge 上全球用户最多的 ChatGPT 插件
   {/if}
 </div>

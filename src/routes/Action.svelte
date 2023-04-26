@@ -9,11 +9,9 @@
   {:else if type === "Chrome"}
     <span class="i-logos-chrome-web-store text-xs" />
     <span class="text-xs font-bold">免费下载</span>
-  {:else if type === "Edge"}
+  {:else}
     <span class="i-logos-microsoft-icon text-xs" />
     <span class="text-xs font-bold">免费下载</span>
-  {:else}
-    <span class="text-xs font-bold">立即查看</span>
   {/if}
 </div>
 

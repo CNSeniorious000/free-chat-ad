@@ -7,9 +7,7 @@
     懂王
   {:else if type === "Chrome"}
     ChatGPT Sidebar
-  {:else if type === "Edge"}
-    Sider - AI Sidebar
   {:else}
-    ChitChat
+    Sider <span class="<sm:hidden"> - ChatGPT 侧边栏</span>
   {/if}
 </h1>
