@@ -25,7 +25,8 @@
   function handleClick() {
     if (type === "iOS") gtag("event", "click_ChitChat", { event_category: "promotion", event_label: "button_iOS" });
     else if (type === "Chrome") gtag("event", "click_Sidebar", { event_category: "promotion", event_label: "button_Chrome" });
-    else gtag("event", "click_Sider", { event_category: "promotion", event_label: "button_Edge" });
+    else if (type === "Edge") gtag("event", "click_Sider", { event_category: "promotion", event_label: "button_Edge" });
+    else gtag("event", "click_Sider_other", { event_category: "promotion", event_label: "button_Edge" });
   }
 
   onMount(() => {
@@ -42,13 +43,16 @@
     } else if (browser.name === "Chrome") {
       type = "Chrome";
       href = "https://chrome.google.com/webstore/detail/chatgpt-sidebar-support-g/difoiogjjojoaoomphldepapgpbgkhkb";
-    } else {
+    } else if (browser.name === "Edge") {
       type = "Edge";
+      href = "https://microsoftedge.microsoft.com/addons/detail/sider-ai-sidebar/dhoenijjpgpeimemopealfcbiecgceod";
+    } else {
+      type = "others";
       href = "https://microsoftedge.microsoft.com/addons/detail/sider-ai-sidebar/dhoenijjpgpeimemopealfcbiecgceod";
     }
 
     gtag("js", new Date());
-    gtag("config", "G-F8K8V9N5K4");
+    gtag("config", PUBLIC_GA_TRACKING_ID);
   });
 </script>
 
@@ -121,7 +125,7 @@
     <!-- <link rel="preconnect" {href} /> -->
   {/if}
 
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-F8K8V9N5K4"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id={PUBLIC_GA_TRACKING_ID}"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag() {
