@@ -16,7 +16,7 @@
         break;
       case "Chrome":
       default:
-        features = ["无需梯子", "AI 聊天", "智能读写", "即将支持 GPT-4"];
+        features = ["无需梯子", "AI 聊天", "智能读写", "已支持 GPT-4"];
     }
   }
 </script>
