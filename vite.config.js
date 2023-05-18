@@ -6,7 +6,7 @@ import { presetUno, presetIcons, presetWebFonts } from "unocss";
 const config = {
   plugins: [
     Unocss({
-      extractors: [extractorSvelte],
+      extractors: [extractorSvelte()],
       presets: [
         presetUno(),
         presetIcons(),
