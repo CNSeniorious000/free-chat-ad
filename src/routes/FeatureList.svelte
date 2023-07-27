@@ -10,33 +10,39 @@
   let features = [];
 
   $: {
-    switch (type) {
-      case "iOS":
-        features = ["100+AI专家", "PDF智能问答", "支持GPT, Bard, Bing", "自定义AI角色"];
-        break;
-      case "Chrome":
-      default:
-        features = ["无需梯子", "AI 聊天", "智能读写", "已支持 GPT-4"];
-    }
+    features = (() => {
+      switch (type) {
+        case "ic":
+          return ["接收最新通知", "切换 16K 线路", "周边应用", "获得联系方式"];
+        case "ac":
+          return ["登录官方 ChatGPT", "登录 iOS APP", "官方安卓APP也即将发布"];
+        case "wg":
+          return ["防止失联", "私有化部署(超容易)", "了解最新动态", "咨询合作"];
+        case "as":
+          return ["仿 AntFu 极简风格 UI", "微调模型参数", "编辑上下文", "由第三方维护"];
+        default:
+          return [];
+      }
+    })();
   }
 </script>
 
-<div class="flex flex-row gap-2 text-sm font-bold min-w-max dark:font-normal overflow-hidden">
+<div class="flex flex-row font-bold min-w-max text-sm gap-2 overflow-hidden dark:font-normal">
   <div class="hidden sm:contents">
     {#each features as feature, index}
-      <div in:fly={{ y: 3, delay: 550 - index * 100 }}><Feature {feature} /></div>
+      <div in:fly|global={{ y: 3, delay: 550 - index * 100 }}><Feature {feature} /></div>
     {/each}
   </div>
   <div class="contents sm:hidden">
-    <div class="flex flex-col gap-1 mt-1">
+    <div class="flex flex-col mt-1 gap-1">
       <div class="flex flex-row gap-2">
         {#each features.slice(0, 2) as feature, index}
-          <div in:fly={{ y: 3, delay: 250 + index * 100 }}><Feature {feature} /></div>
+          <div in:fly|global={{ y: 3, delay: 250 + index * 100 }}><Feature {feature} /></div>
         {/each}
       </div>
       <div class="flex flex-row gap-2">
         {#each features.slice(2, 4) as feature, index}
-          <div in:fly={{ y: 3, delay: 350 + index * 100 }}><Feature {feature} /></div>
+          <div in:fly|global={{ y: 3, delay: 350 + index * 100 }}><Feature {feature} /></div>
         {/each}
       </div>
     </div>

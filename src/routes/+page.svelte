@@ -1,80 +1,49 @@
 <script>
-  import { PUBLIC_GA_TRACKING_ID } from "$env/static/public";
-  import { onMount } from "svelte";
-  import { UAParser } from "ua-parser-js";
-
-  import "uno.css";
-
   import FeatureList from "./FeatureList.svelte";
   import Title from "./Title.svelte";
   import Logo from "./Logo.svelte";
   import Background from "./Background.svelte";
   import Action from "./Action.svelte";
   import Slogan from "./Slogan.svelte";
+  import Before from "./Before.svelte";
   import { backOut, cubicOut } from "svelte/easing";
   import { fade, fly, scale } from "svelte/transition";
-  import Before from "./Before.svelte";
+  import { onMount } from "svelte";
 
-  let href = "";
-  let type = "";
+  export let data;
+  const { type, href } = data;
+
   let mounted = false;
   let show = false;
-
   let dark = false;
 
-  $: console.log({ dark });
-
-  function handleClick() {
-    if (type === "iOS") gtag("event", "click_ChitChat", { event_category: "promotion", event_label: "button_iOS" });
-    else if (type === "Chrome") gtag("event", "click_Sidebar", { event_category: "promotion", event_label: "button_Chrome" });
-    else if (type === "Edge") gtag("event", "click_Sider", { event_category: "promotion", event_label: "button_Edge" });
-    else gtag("event", "click_Sider_other", { event_category: "promotion", event_label: "button_Edge" });
-  }
-
   onMount(() => {
+    mounted = true;
     window.addEventListener("message", (event) => {
       dark = event.data.darkMode;
-      mounted = true;
     });
     parent?.postMessage("mounted", "*");
-
-    const { browser, os } = UAParser();
-    if (os.name === "iOS") {
-      type = "iOS";
-      href = "https://apps.apple.com/cn/app/chitchat-chat-pdf/id6446394143";
-    } else if (browser.name === "Chrome") {
-      type = "Chrome";
-      href = "https://chrome.google.com/webstore/detail/chatgpt-sidebar-support-g/difoiogjjojoaoomphldepapgpbgkhkb";
-    } else if (browser.name === "Edge") {
-      type = "Edge";
-      href = "https://microsoftedge.microsoft.com/addons/detail/sider-ai-sidebar/dhoenijjpgpeimemopealfcbiecgceod";
-    } else {
-      type = "others";
-      href = "https://microsoftedge.microsoft.com/addons/detail/sider-ai-sidebar/dhoenijjpgpeimemopealfcbiecgceod";
-    }
-
-    gtag("js", new Date());
-    gtag("config", PUBLIC_GA_TRACKING_ID);
   });
 </script>
 
 {#if mounted}
-  <div class="font-sans text-xs whitespace-nowrap" class:dark>
-    <a on:click={handleClick} {href} target="_blank" class="fixed left-0 top-0 w-screen h-screen text-[#444444] dark:text-[#ddddf0]">
+  <div class="font-sans font-montserrat text-xs whitespace-nowrap" class:dark>
+    <a {href} target="_blank" class="h-screen w-screen top-0 left-0 text-[#444444] fixed dark:text-[#ddddf0]">
       {#if show}
         <Background />
 
         <div class="contents sm:hidden">
-          <div class="absolute left-6 flex flex-row h-full items-center">
+          <div class="flex flex-row h-full left-6 absolute items-center">
             <div class="flex flex-col">
-              <div class="flex flex-row items-center">
-                <div in:fly={{ y: 3, duration: 500, easing: cubicOut }} class="w-7 flex">
-                  <Logo />
+              <div class="flex flex-row gap-1 items-center">
+                <div in:fly={{ y: 3, duration: 500, easing: cubicOut }} class="w-6">
+                  <Logo {type} />
                 </div>
-                <div in:fly={{ y: 3, duration: 500, easing: cubicOut, delay: 50 }} class="ml-1">
+                <div in:fly={{ y: 3, duration: 500, easing: cubicOut, delay: 50 }}>
                   <Title {type} />
                 </div>
-                <div in:fly={{ y: 3, duration: 500, easing: cubicOut, delay: 100 }} class="ml-2">
+                <div>-</div>
+                <div in:fly={{ y: 3, duration: 500, easing: cubicOut, delay: 100 }}>
                   <Slogan {type} />
                 </div>
               </div>
@@ -83,24 +52,22 @@
               </div>
             </div>
           </div>
-          <div in:scale={{ start: 0.5, delay: 800, duration: 850, easing: backOut }} class="absolute right-6 bottom-5.5">
+          <div in:scale={{ start: 0.5, delay: 800, duration: 850, easing: backOut }} class="right-6 bottom-5.5 absolute">
             <Action {type} />
           </div>
         </div>
 
         <div class="hidden sm:contents">
-          <div class="absolute h-full right-6 md:right-10 transition-[right] flex flex-col justify-center items-end gap-1">
+          <div class="flex flex-col h-full transition-[right] right-6 gap-1 absolute justify-center items-end md:right-10">
             <div in:fly={{ y: 3, duration: 500, easing: cubicOut, delay: 50 }}>
               <Title {type} />
             </div>
             <FeatureList {type} />
           </div>
 
-          <div class="absolute h-full left-6 md:left-10 transition-[left] flex flex-row gap-4 items-center">
-            <div in:fly={{ y: 5, duration: 500 }} class="h-13 w-13 p-1.7 bg-white dark:bg-[#212129] ring-inset dark:ring-1.5 ring-[#ddddf0] rounded-1/3 shadow-black/15 dark:shadow-black/40 shadow-lg">
-              <div>
-                <Logo />
-              </div>
+          <div class="flex flex-row h-full transition-[left] left-6 gap-4 absolute items-center md:left-10">
+            <div in:fly={{ y: 5, duration: 500 }} class="bg-white rounded-1/3 h-13 shadow-lg ring-inset p-1.7 shadow-black/15 ring-[#ddddf0] w-13 dark:bg-[#212129] dark:shadow-black/40 dark:ring-1.5">
+              <Logo {type} />
             </div>
 
             <div class="flex flex-col gap-2.5 translate-y-0.8">
@@ -119,25 +86,16 @@
     </a>
   </div>
 {:else}
-  <div transition:fade={{ duration: 150 }} class="fixed right-1/2 bottom-1/2 translate-x-1/2 translate-y-1/2 text-[#80808080] text-xl">
+  <div transition:fade={{ duration: 150 }} class="text-xl right-1/2 bottom-1/2 text-[#80808080] translate-x-1/2 translate-y-1/2 fixed">
     <div class="i-svg-spinners-6-dots-scale-middle" />
   </div>
 {/if}
 
 <svelte:head>
-  <script async src="https://www.googletagmanager.com/gtag/js?id={PUBLIC_GA_TRACKING_ID}"></script>
   {#if href}
     <link rel="dns-prefetch" {href} />
-    <!-- <link rel="preconnect" {href} /> -->
+    <link rel="preconnect" {href} />
   {/if}
-
-  <script async src="https://www.googletagmanager.com/gtag/js?id={PUBLIC_GA_TRACKING_ID}"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-  </script>
 </svelte:head>
 
 <style>

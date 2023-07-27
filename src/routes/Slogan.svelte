@@ -2,12 +2,14 @@
   export let type = "";
 </script>
 
-<div class="text-[15px] font-semibold dark:font-normal">
-  {#if type === "iOS"}
-    AI聊天新境界。懂你不懂，聊你想聊!
-  {:else if type === "Chrome"}
-    <span class="<sm:hidden"> 一款值得拥有的GPT插件! </span> 效率翻倍，读写不累!
-  {:else}
-    <span class="sm:hidden"> - </span> Edge 上全球用户最多的 ChatGPT 插件
+<div class="font-semibold text-[15px] dark:font-normal">
+  {#if type === "ic"}
+    了解更多：通知、文档、联系方式等
+  {:else if type === "ac"}
+    登录官网 ChatGPT
+  {:else if type === "wg"}
+    为防止域名再次被封导致失联
+  {:else if type === "as"}
+    Get answers from AI elegantly.
   {/if}
 </div>

@@ -1,1 +1,1 @@
-# Advertisement for ChitChat inside an `iframe`
+# Advertisement inside Free Chat's `iframe`
