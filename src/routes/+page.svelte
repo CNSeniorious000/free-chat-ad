@@ -6,6 +6,7 @@
   import Action from "./Action.svelte";
   import Slogan from "./Slogan.svelte";
   import Before from "./Before.svelte";
+  import FadeIn from "./FadeIn.svelte";
   import { backOut, cubicOut } from "svelte/easing";
   import { fade, fly, scale } from "svelte/transition";
   import { onMount } from "svelte";
@@ -37,7 +38,7 @@
             <div class="flex flex-col">
               <div class="flex flex-row gap-1 items-center">
                 <div in:fly={{ y: 3, duration: 500, easing: cubicOut }} class="w-6">
-                  <Logo {type} />
+                  <FadeIn><Logo {type} /></FadeIn>
                 </div>
                 <div in:fly={{ y: 3, duration: 500, easing: cubicOut, delay: 50 }}>
                   <Title {type} />
@@ -67,7 +68,9 @@
 
           <div class="flex flex-row h-full transition-[left] left-6 gap-4 absolute items-center md:left-10">
             <div in:fly={{ y: 5, duration: 500 }} class="bg-white rounded-1/3 h-13 shadow-lg ring-inset p-1.7 shadow-black/15 ring-[#ddddf0] w-13 dark:bg-[#212129] dark:shadow-black/40 dark:ring-1.5">
-              <Logo {type} />
+              <FadeIn delay={50}>
+                <Logo {type} />
+              </FadeIn>
             </div>
 
             <div class="flex flex-col gap-2.5 translate-y-0.8">
