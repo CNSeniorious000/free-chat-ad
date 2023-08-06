@@ -8,7 +8,9 @@
 <svelte:head>
   {#if !dev}
     <script async src="https://www.googletagmanager.com/gtag/js?id={PUBLIC_GA_TRACKING_ID}"></script>
+    <meta id="GA_TRACKING_ID" content={PUBLIC_GA_TRACKING_ID} />
     <script>
+      const PUBLIC_GA_TRACKING_ID = document.querySelector("#GA_TRACKING_ID").content.trim();
       window.dataLayer = window.dataLayer || [];
       function gtag() {
         dataLayer.push(arguments);

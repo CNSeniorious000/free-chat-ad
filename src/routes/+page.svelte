@@ -21,7 +21,7 @@
   onMount(() => {
     mounted = true;
     window.addEventListener("message", (event) => {
-      dark = event.data.darkMode;
+      dark = event.data?.darkMode ?? dark;
     });
     parent?.postMessage("mounted", "*");
   });
