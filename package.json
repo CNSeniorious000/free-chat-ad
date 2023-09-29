@@ -10,20 +10,20 @@
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json --watch"
 	},
 	"devDependencies": {
-		"@iconify/json": "^2.2.98",
+		"@iconify/json": "^2.2.122",
 		"@sveltejs/adapter-auto": "^2.1.0",
-		"@sveltejs/kit": "^1.22.4",
-		"@types/ua-parser-js": "^0.7.36",
-		"@unocss/extractor-svelte": "^0.54.1",
-		"@unocss/reset": "^0.54.1",
-		"svelte": "^4.1.2",
-		"svelte-check": "^3.4.6",
-		"typescript": "^5.1.6",
-		"unocss": "^0.54.1",
-		"vite": "^4.4.8"
+		"@sveltejs/kit": "^1.25.1",
+		"@types/ua-parser-js": "^0.7.37",
+		"@unocss/extractor-svelte": "^0.56.4",
+		"@unocss/reset": "^0.56.4",
+		"svelte": "^4.2.1",
+		"svelte-check": "^3.5.2",
+		"typescript": "^5.2.2",
+		"unocss": "^0.56.4",
+		"vite": "^4.4.9"
 	},
 	"type": "module",
 	"dependencies": {
-		"ua-parser-js": "^1.0.35"
+		"ua-parser-js": "^1.0.36"
 	}
 }
