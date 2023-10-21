@@ -8,6 +8,6 @@ export const config = {
 export async function load({ cookies }) {
     const index = cookies.get("index") ?? null;
     const { i, type, href } = getAd(Number(index));
-    cookies.set("index", String(i))
+    cookies.set("index", String(i), { maxAge: 60 * 60 * 24 * 300, sameSite: "lax" })
     return { type, href }
 };
