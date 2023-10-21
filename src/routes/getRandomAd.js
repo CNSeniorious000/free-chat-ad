@@ -5,7 +5,8 @@ export function getAd(i = null) {
   switch (i ?? Math.floor(Math.random() * 4)) {
     case 0: return { i, type: "ic", href: "https://ic.free-chat.asia/" }
     case 1: return { i, type: "ac", href: "https://accounts.free-chat.asia/" }
-    case 2: return { i, type: "wg", href: "https://group.free-chat.asia/" }
+    // case 2: return { i, type: "wg", href: "https://group.free-chat.asia/" }
+    case 2: return { i, type: "promplate", href: "https://zh.promplate.dev/" }
     case 3: return { i, type: "as", href: "https://anse.free-chat.asia/" }
 
     default: return { i, type: "ic", href: "https://ic.free-chat.asia/" }

@@ -9,6 +9,8 @@
     登录官网 ChatGPT
   {:else if type === "wg"}
     为防止域名再次被封导致失联
+  {:else if type === "promplate"}
+    高自由度的提示工程框架
   {:else if type === "as"}
     Get answers from AI elegantly.
   {/if}

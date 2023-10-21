@@ -12,6 +12,8 @@
   {:else if type === "wg"}
     <span class="i-mingcute-wechat-fill !text-lg" />
     <span>点击前往二维码页面</span>
+  {:else if type === "promplate"}
+    <span>了解一下</span>
   {:else if type === "as"}
     <span>免费使用</span>
     <span class="i-fluent-sparkle-16-filled !text-lg" />

@@ -16,6 +16,8 @@
     </defs>
     <path fill="url(#a)" d="M32.212 6.875C45.9522 6.875 57.125 18.3583 57.125 31.9914C57.125 45.6244 45.9695 57.0999 32.212 57.0999L6.875 57.125V31.5595C6.875 17.9344 18.4561 6.87657 32.212 6.87657V6.875Z" />
   </svg>
+{:else if type === "promplate"}
+  <img class="rounded-xl" src="https://promplate.dev/favicon.png" alt="promplate" />
 {:else}
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
     <defs>

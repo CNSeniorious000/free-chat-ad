@@ -15,9 +15,11 @@
         case "ic":
           return ["接收最新通知", "切换 16K 线路", "周边应用", "获得联系方式"];
         case "ac":
-          return ["登录官方 ChatGPT", "登录 iOS APP", "官方安卓APP也即将发布"];
+          return ["登录官方 ChatGPT", "登录 iOS APP", "官方安卓APP也已发布"];
         case "wg":
           return ["防止失联", "私有化部署(超容易)", "了解最新动态", "咨询合作"];
+        case "promplate":
+          return ["渐进式上手提示工程", "更简单的 OpenAI SDK", "直观零门槛的模板语法", "由本人开发"];
         case "as":
           return ["仿 AntFu 极简风格 UI", "微调模型参数", "编辑上下文", "由第三方维护"];
         default:
