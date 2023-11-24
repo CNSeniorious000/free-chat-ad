@@ -21,7 +21,7 @@
         case "promplate":
           return ["渐进式上手提示工程", "更简单的 OpenAI SDK", "直观零门槛的模板语法", "由本人开发"];
         case "as":
-          return ["仿 AntFu 极简风格 UI", "微调模型参数", "编辑上下文", "由第三方维护"];
+          return ["一站式会话管理", "可选更多模型", "编辑上下文", "支持 DALL·E 3 绘图"];
         default:
           return [];
       }
